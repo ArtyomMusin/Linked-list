@@ -1,4 +1,4 @@
-# Drag-n-drop
+# Linked list
 
 Type: personal practice\
 
