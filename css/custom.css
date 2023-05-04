@@ -1,0 +1,186 @@
+html, body, .wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+html, body{
+    font-size: 16px;
+}
+
+h1{
+    margin-top: 1rem;
+}
+
+.wrapper{
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 1rem 1rem;
+    background: rgb(239,89,189);
+    background: linear-gradient(90deg, rgba(239,89,189,1) 0%, rgba(239,89,189,1) 35%, rgba(149,91,228,1) 100%);
+    color: azure;
+    text-shadow: 0 0 5px black;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.description h1,p {
+    width: 100%;
+}
+
+.content-text {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.list-visual{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    color: #1a237e;
+    text-shadow: none;
+}
+
+.methods{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-right: 1px solid #e0e0e0;
+}
+
+.methods > .row {
+    margin-left: unset;
+}
+
+.methods > .row:not(:last-child){
+    margin-bottom: 2rem;
+}
+
+.methods input{
+    height: 1.2rem !important;
+}
+
+.box-method{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-parameters{
+    display: flex;
+    flex-direction: row;
+    width: 10rem;
+}
+
+
+/* Object styles */
+.object p{
+    margin-bottom: 0.2rem;
+}
+
+.object._active > .object__name:before{
+    transform: rotate(0deg);
+}
+
+.object._active > .object__body{
+    display: block;
+}
+
+.object__name{
+    padding-left: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.object__name > span{
+    font-weight: 600;
+}
+
+.object__name:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 4px;
+    left: 4px;
+    transform: rotate(-90deg);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #959595;
+}
+
+.object__body{
+    display: none;
+    padding-left: 1.5rem;
+}
+
+.object__string{
+    color: darkgreen;
+}
+
+.object__value{
+    color: #e65100;
+}
+
+/*.object__item{*/
+
+/*}*/
+
+/*.object__key{*/
+
+/*}*/
+
+
+/* Edition materialize */
+.input-field{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.input-field.inline input, .input-field.inline .select-dropdown{
+    margin-bottom: 0;
+}
+
+.input-field > label{
+    transform: translateY(0px);
+}
+
+.input-field > label.two-strings{
+    transform: translateY(-12px);
+}
+
+.input-field > label.two-strings.active{
+    -webkit-transform: translateY(-16px) scale(0.8);
+    transform: translateY(-22px) scale(0.8);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+}
+.wrapper::-webkit-scrollbar-track {
+    background: #975BE3;        /* цвет дорожки */
+}
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: #EF59BD;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 3px solid #975BE3;  /* padding вокруг плашки */
+}
+
+/* Media */
+@media(max-width: 900px){
+    .list-visual{
+
+    }
+}

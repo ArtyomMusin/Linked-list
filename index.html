@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linked list</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="description">
+            <h1>Linked list</h1>
+            <p class="content-text">
+                <b>Linked list</b> - basic dynamic data structure in computer science,
+                consisting of nodes containing data and links ("bundles") to the next and/or previous node of the list.
+                The fundamental advantage over an array is structural flexibility: the order of the elements of a linked list
+                may not coincide with the order of the data elements in the computer's memory, and the order of traversal of
+                the list is always explicitly specified by its internal links
+            </p>
+            <p class="content-text">
+                This interface distinguishes only 2 data types - numbers and strings (everything that is not numbers is strings),
+                because its task is to demonstrate what a linked list is online without local deployment.
+                All errors are displayed in the console
+            </p>
+        </div>
+        <div class="list-visual">
+            <div class="methods">
+
+                <div class="row" style="margin-bottom: 1rem;">
+                    <div class="col s12">
+                        <b>const list = <span style="color:#e65100">new LinkedList()</span></b>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="append">
+                            list.append(
+                            <div class="input-field inline">
+                                <input id="appendValue" type="text" class="validate" data-param="value" data-type="input" data-finish="true">
+                                <label for="appendValue">data</label>
+                            </div>
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="prepend">
+                            list.prepend(
+                            <div class="input-field inline">
+                                <input id="prependValue" type="text" class="validate" data-param="value" data-type="input" data-finish="true">
+                                <label for="prependValue">data</label>
+                            </div>
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="insertAfter">
+                            <span>list.insertAfter(</span>
+                            <div class="box-parameters">
+                                <div class="input-field inline">
+                                    <input id="insertAfterData" type="text" class="validate" data-param="after" data-type="input" >
+                                    <label for="insertAfterData">after</label>
+                                </div>
+                                <span>,&nbsp;</span>
+                                <div class="input-field inline">
+                                    <input id="insertAfterValue" type="text" class="validate" data-param="value" data-type="input" data-finish="true">
+                                    <label for="insertAfterValue">data</label>
+                                </div>
+                            </div>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="insertBefore">
+                            <span>list.insertBefore(</span>
+                            <div class="box-parameters">
+                                <div class="input-field inline">
+                                    <input id="insertBeforeData" type="text" class="validate" data-param="before" data-type="input">
+                                    <label for="insertBeforeData">before</label>
+                                </div>
+                                <span>,&nbsp;</span>
+                                <div class="input-field inline">
+                                    <input id="insertBeforeValue" type="text" class="validate" data-param="value" data-type="input" data-finish="true">
+                                    <label for="insertBeforeValue">data</label>
+                                </div>
+                            </div>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="removeAfter">
+                            <span>list.removeAfter(</span>
+                            <div class="box-parameters">
+                                <div class="input-field inline">
+                                    <input id="removeAfterData" type="text" class="validate" data-param="after" data-type="input">
+                                    <label for="removeAfterData">after</label>
+                                </div>
+                                <span>,&nbsp;</span>
+                                <div class="input-field inline">
+                                    <input id="removeAfterValue" type="text" class="validate" data-param="value" data-type="input" data-finish="true">
+                                    <label for="removeAfterValue" class="two-strings">removing value</label>
+                                </div>
+                            </div>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-method" id="removeBefore">
+                            <span>list.removeBefore(</span>
+                            <div class="box-parameters">
+                                <div class="input-field inline">
+                                    <input id="removeBeforeData" type="text" class="validate"  data-param="before" data-type="input">
+                                    <label for="removeBeforeData">before</label>
+                                </div>
+                                <span>,&nbsp;</span>
+                                <div class="input-field inline">
+                                    <input id="removeBeforeValue" type="text" class="validate"  data-param="value" data-type="input" data-finish="true">
+                                    <label for="removeBeforeValue" class="two-strings">removing value</label>
+                                </div>
+                            </div>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field inline">
+                            <a class="waves-effect waves-light btn" id="removeAll">Clear List</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="visual">
+<!--                <div class="object">-->
+<!--                    <p class="object__name"><span>Name Object</span>: Object</p>-->
+<!--                    <div class="object__body">-->
+<!--                        <div class="object__item"><span class="object__key">name</span>: asd</div>-->
+<!--                        <div class="object__item object"><span class="object__key">value</span>: 123</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" ></script>
+    <script src="js/customObjectMethods.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
+</body>
+</html>
