@@ -9,8 +9,15 @@ html, body{
     font-size: 16px;
 }
 
-h1{
+.title{
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(310deg, #5503bb 80%, #800156);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+    text-shadow: none;
+    font-weight: 500;
 }
 
 .wrapper{
@@ -39,6 +46,13 @@ h1{
     font-size: 1.2rem;
     line-height: 1.2rem;
     margin-bottom: 1rem;
+    padding-left: 1rem;
+    background: linear-gradient(90deg, #5503bb, #800156);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+    text-shadow: none;
+    font-weight: 500;
 }
 
 .list-visual{
@@ -52,6 +66,10 @@ h1{
     text-shadow: none;
 }
 
+.started-actions{
+    margin-bottom: 0.4rem;
+}
+
 .methods{
     display: flex;
     flex-direction: column;
@@ -61,6 +79,7 @@ h1{
 
 .methods > .row {
     margin-left: unset;
+    width: 100%;
 }
 
 .methods > .row:not(:last-child){
@@ -80,6 +99,22 @@ h1{
     display: flex;
     flex-direction: row;
     width: 10rem;
+}
+
+.press-enter{
+    width: max-content;
+    color: #26a69a;
+    font-size: 0.785rem;
+    line-height: 1rem;
+    padding-left: 0.4rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+}
+
+.press-enter._active{
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -156,12 +191,12 @@ h1{
 }
 
 .input-field > label.two-strings{
-    transform: translateY(-12px);
+    transform: translateY(-16px);
 }
 
 .input-field > label.two-strings.active{
-    -webkit-transform: translateY(-16px) scale(0.8);
-    transform: translateY(-22px) scale(0.8);
+    -webkit-transform: translateY(-26px) scale(0.8);
+    transform: translateY(-26px) scale(0.8);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
@@ -173,14 +208,7 @@ h1{
     background: #975BE3;        /* цвет дорожки */
 }
 .wrapper::-webkit-scrollbar-thumb {
-    background-color: #EF59BD;    /* цвет плашки */
+    background-color: #800156;    /* цвет плашки */
     border-radius: 20px;       /* закругления плашки */
     border: 3px solid #975BE3;  /* padding вокруг плашки */
-}
-
-/* Media */
-@media(max-width: 900px){
-    .list-visual{
-
-    }
 }
