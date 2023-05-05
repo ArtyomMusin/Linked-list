@@ -1,6 +1,6 @@
-# Drag-n-drop
+# Linked list
 
-Type: personal practice\
+Type: personal practice
 
 I studied data types on node.js and decided to make a simple interface and upload it to github for clarity.
 
