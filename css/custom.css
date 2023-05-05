@@ -55,15 +55,65 @@ html, body{
     font-weight: 500;
 }
 
-.list-visual{
+.box-visual{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     width: 100%;
+    min-height: min-content;
     padding: 1rem;
     background-color: #fff;
     border-radius: 1rem;
     color: #1a237e;
     text-shadow: none;
+}
+
+.visual{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    max-height: inherit;
+    flex-grow: 0;
+}
+
+.visualization{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 404px;
+    flex: 1 1 auto;
+    overflow: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 3rem;
+    padding: 1rem;
+}
+
+.messages .message{
+    font-weight: 600;
+    font-size: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+}
+
+.messages .message._active{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s linear;
+}
+
+.messages .error{
+    color: red;
+}
+
+.messages .success{
+    color: #00c20f;
 }
 
 .started-actions{
@@ -74,6 +124,7 @@ html, body{
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: fit-content;
     border-right: 1px solid #e0e0e0;
 }
 
@@ -116,7 +167,6 @@ html, body{
     opacity: 1;
     visibility: visible;
 }
-
 
 /* Object styles */
 .object p{
@@ -161,6 +211,7 @@ html, body{
 
 .object__string{
     color: darkgreen;
+    white-space: nowrap;
 }
 
 .object__value{
@@ -201,14 +252,24 @@ html, body{
     transform-origin: 0 0;
 }
 
-.wrapper::-webkit-scrollbar {
+.wrapper::-webkit-scrollbar,
+.visualization::-webkit-scrollbar{
     width: 12px;               /* ширина scrollbar */
 }
 .wrapper::-webkit-scrollbar-track {
     background: #975BE3;        /* цвет дорожки */
 }
-.wrapper::-webkit-scrollbar-thumb {
+.wrapper::-webkit-scrollbar-thumb{
     background-color: #800156;    /* цвет плашки */
     border-radius: 20px;       /* закругления плашки */
     border: 3px solid #975BE3;  /* padding вокруг плашки */
+}
+.visualization::-webkit-scrollbar-track {
+    background: #ffffff;        /* цвет дорожки */
+}
+
+.visualization::-webkit-scrollbar-thumb {
+    background-color: #800156;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 3px solid #ffffff;  /* padding вокруг плашки */
 }

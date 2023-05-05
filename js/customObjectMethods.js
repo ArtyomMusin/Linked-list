@@ -1,4 +1,4 @@
-import { refreshList} from './handlers.js'
+import { refreshList, showMessage } from './handlers.js'
 import { REMOVE_ALL } from './vars.js'
 
 Object.prototype.clearContent = function() {
@@ -22,14 +22,15 @@ Object.prototype.refreshContent = function(content) {
     return this
 }
 
-Object.prototype.clearList = function(list) {
+Object.prototype.clearList = function(list, messageBox) {
     this.addEventListener('click', () => {
         refreshList(REMOVE_ALL, list)
+        showMessage(messageBox, 'success')('success')
         return this
     })
 }
 
-Object.prototype.addValueToList = function(method, list) {
+Object.prototype.addValueToList = function(method, list, messageBox) {
     this.addEventListener('keydown', (e) => {
         if(e.keyCode !== 13) return
         if(!e.target.value.trim()){
@@ -53,6 +54,7 @@ Object.prototype.addValueToList = function(method, list) {
 
         if(lastInput) {
             refreshList(method, list, data)
+            showMessage(messageBox, 'success')('success')
             fields.forEach(input => input.value = '')
         } else {
             const index = fields.findIndex(item => item.id === e.target.id)

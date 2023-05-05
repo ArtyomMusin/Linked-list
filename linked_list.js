@@ -9,6 +9,7 @@ class LinkedList{
     constructor() {
         this.head = null
         this.tail = null
+        this.errorsHandlers = []
     }
 
     append(data){
@@ -45,7 +46,10 @@ class LinkedList{
     }
 
     find(element){
-        if(!this.head) throw 'LinkedList is Empty'
+        if(!this.head) {
+            const message = `LinkedList is Empty`
+            this._callErrors(message)
+        }
 
         let current = this.head
 
@@ -66,7 +70,8 @@ class LinkedList{
             current = current.next
 
             if(!current){
-                throw new Error(`Item ${before} was not found in the list`)
+                const message = `Item ${before} was not found in the list`
+                this._callErrors(message)
             }
         }
 
@@ -77,15 +82,22 @@ class LinkedList{
         let found = this.find(after)
 
         if(!found){
-            throw new Error(`Item ${after} was not found in the list`)
+            const message = `Item ${after} was not found in the list`
+            this._callErrors(message)
         }
 
         found.next = new Node(data, found.next)
     }
 
     removeBefore(item, before){
-        if(!item) throw new Error('Отсутствует или неверно указан аргумент item')
-        if(!before) throw new Error('Отсутствует или неверно указан аргумент before')
+        if(!item) {
+            const message = 'Missing or invalid argument "item"'
+            this._callErrors(message)
+        }
+        if(!before) {
+            const message = 'Missing or invalid argument "before"'
+            this._callErrors(message)
+        }
 
         let previous = null
         let current = this.head
@@ -107,13 +119,20 @@ class LinkedList{
         }
 
         if(!countMatches) {
-            throw new Error(`Нет такого условия удалить ${item} перед ${before}`)
+            const message = `No such condition: ${item} before ${before}`
+            this._callErrors(message)
         }
     }
 
     removeAfter(item, after){
-        if(!item) throw new Error('Отсутствует или неверно указан аргумент item')
-        if(!after) throw new Error('Отсутствует или неверно указан аргумент after')
+        if(!item) {
+            const message = `Missing or invalid argument "item"`
+            this._callErrors(message)
+        }
+        if(!after) {
+            const message = `Missing or invalid argument "after"`
+            this._callErrors(message)
+        }
 
         let previous = this.head
         let current = this.head.next
@@ -132,13 +151,23 @@ class LinkedList{
         }
 
         if(!countMatches){
-            throw new Error(`Нет такого условия удалить ${item} после ${after}`)
+            const message = `No such condition: ${item} after ${after}`
+            this._callErrors(message)
         }
     }
 
     clearList(){
         this.head = null
         this.tail = null
+    }
+
+    _callErrors(error){
+        this.errorsHandlers.forEach(func => func(error))
+        throw new Error(error)
+    }
+
+    setErrorHandler(callback){
+        this.errorsHandlers.push(callback)
     }
 }
 

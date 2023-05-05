@@ -1,4 +1,4 @@
-import { APPEND, INSERT_AFTER, INSERT_BEFORE, PREPEND, REMOVE_AFTER, REMOVE_BEFORE, REMOVE_ALL } from './vars.js'
+import { APPEND, INSERT_AFTER, INSERT_BEFORE, PREPEND, REMOVE_AFTER, REMOVE_BEFORE, REMOVE_ALL, ERROR } from './vars.js'
 import displayObject from './displayObject.js'
 
 export const afterRefreshList = {
@@ -50,7 +50,32 @@ export function refreshList(method, list, data) {
 
 export function visualListInComponent(component) {
     return function (data) {
-        const content = displayObject(data)
+        const excludes = ['errorsHandlers']
+        const content = displayObject(data, excludes)
         component.refreshContent(content)
+    }
+}
+
+export function showMessage (box, type) {
+    return function (messageText){
+        const success = box.querySelector('.success')
+        const error = box.querySelector('.error')
+        clearMessage(success)
+        clearMessage(error)
+
+        const element = type === ERROR ? error : success
+        element.textContent = messageText
+        element.classList.add('_active')
+        clearMessage(element, true)
+    }
+
+    function clearMessage (el, animation = false) {
+        if(animation){
+            setTimeout(() => el.classList.remove('_active'), 2000)
+            setTimeout(() => el.textContent = '', 2200)
+        } else {
+            el.classList.remove('_active')
+            el.textContent = ''
+        }
     }
 }
